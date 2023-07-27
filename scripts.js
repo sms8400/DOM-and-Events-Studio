@@ -33,22 +33,14 @@ window.addEventListener("load", function(){
     landButton.addEventListener("click", function(){
         alert ("The shuttle is landing. Landing gear engaged.");
         flightStatus.innerHTML = "The shuttle has landed.";
-        shuttleBackground.style.backgroundColor = "green";
-        altitude = 0;
-        spaceShuttleHeight.innerHTML = altitude;
-        rocketPosX = 0;
-        rocketPosY = 0;
-        rocket.style.marginLeft = rocketPosX + 'px';
-        rocket.style.margineBottom = rocketPosY + 'px';
+        resetRocket();
     });
     
     abortButton.addEventListener("click", function(){
         let shouldAbort = confirm("Confirm that you want to abort the mission.");
         if (shouldAbort) {
             flightStatus.innerHTML = "Mission aborted.";
-            shuttleBackground.style.backgroundColor = "green";
-            altitude = 0;
-            spaceShuttleHeight.innerHTML = altitude;
+            resetRocket();
         }
     })
 
@@ -76,4 +68,14 @@ window.addEventListener("load", function(){
             spaceShuttleHeight.innerHTML = altitude;
         }  
     })
+
+    function resetRocket(){
+        shuttleBackground.style.backgroundColor = "green";
+        altitude = 0;
+        spaceShuttleHeight.innerHTML = altitude;
+        rocketPosX = 0;
+        rocketPosY = 0;
+        rocket.style.marginLeft = rocketPosX + 'px';
+        rocket.style.margineBottom = rocketPosY + 'px';
+    }
 })
